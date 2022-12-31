@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Εμβαδό Τριγώνου | Τύπος του Ήρωνα</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+      integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
+      crossorigin="anonymous"
+    />
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+      integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+  </head>
+  <body class="container">
+    <h1 class="m-5 text-center">
+      Υπολογισμός εμβαδού Τριγώνου με τον τύπο του Ήρωνα
+    </h1>
+    <section class="lead m-5">
+      Η εφαρμογή στην παρούσα ιστοσελίδα θα υπολογίζει το εμβαδό του τριγώνου,
+      αφού ο χρήστης εισάγει τα μήκη των πλευρών του.
+    </section>
+
+    <section class="m-5">
+      <h2 class="text-center m-3">Βασική Θεωρία</h2>
+
+      <div class="m-3 row">
+        <h5 class="m-5">Ο τύπος του Ήρωνα:</h5>
+        <div id="heronFormula" class="col"></div>
+        <div class="col">
+          <div><span id="e"></span>: το εμβαδό του τριγώνου</div>
+          <div><span id="sides"></span>: οι πλευρές του τριγώνου</div>
+          <div><span id="t"></span>: η ημιπερίμετρος του τριγώνου</div>
+        </div>
+      </div>
+      <div class="m-3 row">
+        <h5 class="m-3">Κριτήριο ύπαρξης τριγώνου:</h5>
+        <div>
+          Στην εφαρμογή μας, ως έγκυρα μήκη πλευρών του τριγώνου θα θεωρούνται
+          θετικού αριθμοί, οι οποίοι θα ικανοποιούν για οποιαδήποτε τριάδα που
+          μπορεί να σχηματιστεί μεταξύ αυτών την τριγωνική ανισότητα.
+        </div>
+      </div>
+    </section>
+    <section id="app">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default"
+          >Πλευρά Α</span
+        >
+        <input
+          id="side-a"
+          type="number"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default"
+          >Πλευρά Β</span
+        >
+        <input
+          id="side-b"
+          type="number"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default"
+          >Πλευρά Γ</span
+        >
+        <input
+          id="side-c"
+          type="number"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div id="warning"></div>
+      <div id="result"></div>
+      <button type="button" class="btn btn-success" id="calculate-area">
+        Υπολογισμός Εμβαδού
+      </button>
+      <button type="button" class="btn btn-primary" id="clear">
+        Καθαρισμός Πεδίων
+      </button>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+      integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      katex.render(
+        "\\Epsilon =  \\sqrt{\\tau(\\tau - \\alpha)(\\tau - \\beta)(\\tau -\\gamma)}",
+        heronFormula
+      );
+
+      katex.render("\\Epsilon", e);
+      katex.render("\\alpha, \\beta, \\gamma", sides);
+      katex.render("\\tau", t);
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
